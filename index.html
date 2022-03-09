@@ -1,26 +1,141 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Title of the document</title>
-        <!-- Start VWO Async SmartCode -->
-        <script type='text/javascript'>
-            window._vwo_code = window._vwo_code || (function(){
-            var account_id=607964,
-            settings_tolerance=2000,
-            library_tolerance=2500,
-            use_existing_jquery=false,
-            is_spa=1,
-            hide_element='body',
-            
+  <head>
+    <title>Title of the document</title>
+    <!-- Start VWO Async SmartCode -->
+    <script type="text/javascript">
+      window._vwo_code =
+        window._vwo_code ||
+        (function () {
+          var account_id = 607964,
+            settings_tolerance = 2000,
+            library_tolerance = 2500,
+            use_existing_jquery = false,
+            is_spa = 1,
+            hide_element = "body",
             /* DO NOT EDIT BELOW THIS LINE */
-            f=false,d=document,code={use_existing_jquery:function(){return use_existing_jquery;},library_tolerance:function(){return library_tolerance;},finish:function(){if(!f){f=true;var a=d.getElementById('_vis_opt_path_hides');if(a)a.parentNode.removeChild(a);}},finished:function(){return f;},load:function(a){var b=d.createElement('script');b.src=a;b.type='text/javascript';b.innerText;b.onerror=function(){_vwo_code.finish();};d.getElementsByTagName('head')[0].appendChild(b);},init:function(){
-            window.settings_timer=setTimeout(function () {_vwo_code.finish() },settings_tolerance);var a=d.createElement('style'),b=hide_element?hide_element+'{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}':'',h=d.getElementsByTagName('head')[0];a.setAttribute('id','_vis_opt_path_hides');a.setAttribute('type','text/css');if(a.styleSheet)a.styleSheet.cssText=b;else a.appendChild(d.createTextNode(b));h.appendChild(a);this.load('https://dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(d.URL)+'&f='+(+is_spa)+'&r='+Math.random());return settings_timer; }};window._vwo_settings_timer = code.init(); return code; }());
-        </script>
-        <!-- End VWO Async SmartCode -->
-    </head>
-    <body>
-        The content of the document......
-        <user-card></user-card>
-        <script src="userCard.js""></script>
-    </body>
+            f = false,
+            d = document,
+            code = {
+              use_existing_jquery: function () {
+                return use_existing_jquery;
+              },
+              library_tolerance: function () {
+                return library_tolerance;
+              },
+              finish: function () {
+                if (!f) {
+                  f = true;
+                  var a = d.getElementById("_vis_opt_path_hides");
+                  if (a) a.parentNode.removeChild(a);
+                }
+              },
+              finished: function () {
+                return f;
+              },
+              load: function (a) {
+                var b = d.createElement("script");
+                b.src = a;
+                b.type = "text/javascript";
+                b.innerText;
+                b.onerror = function () {
+                  _vwo_code.finish();
+                };
+                d.getElementsByTagName("head")[0].appendChild(b);
+              },
+              init: function () {
+                window.settings_timer = setTimeout(function () {
+                  _vwo_code.finish();
+                }, settings_tolerance);
+                var a = d.createElement("style"),
+                  b = hide_element
+                    ? hide_element +
+                      "{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}"
+                    : "",
+                  h = d.getElementsByTagName("head")[0];
+                a.setAttribute("id", "_vis_opt_path_hides");
+                a.setAttribute("type", "text/css");
+                if (a.styleSheet) a.styleSheet.cssText = b;
+                else a.appendChild(d.createTextNode(b));
+                h.appendChild(a);
+                this.load(
+                  "https://dev.visualwebsiteoptimizer.com/j.php?a=" +
+                    account_id +
+                    "&u=" +
+                    encodeURIComponent(d.URL) +
+                    "&f=" +
+                    +is_spa +
+                    "&r=" +
+                    Math.random()
+                );
+                return settings_timer;
+              }
+            };
+          window._vwo_settings_timer = code.init();
+          return code;
+        })();
+    </script>
+    <!-- End VWO Async SmartCode -->
+    <style>
+      #main {
+        background-color: #efcc90;
+        margin: 5px;
+        padding: 20px;
+        border-radius: 10px;
+      }
+      #outside-wrapper {
+        background-color: #d0f0c0;
+        border-radius: 10px;
+        padding: 5px 10px;
+        margin: 10px;
+      }
+      h1 {
+        text-align: center;
+        background-color: #4f7942;
+        border-radius: 10px;
+        color: white;
+      }
+      #bg {
+        background-color: black;
+        padding: 100px;
+        border-radius: 10px;
+        margin: 10px 0px;
+      }
+      button {
+        background-color: #23272b;
+        border: none;
+        color: white;
+        border-radius: 10px;
+        font-size: 18px;
+        padding: 5px 10px;
+      }
+      input {
+        height: 20px;
+        font-size: 18px;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main">
+      <div id="outside-wrapper">
+        <h1>The content of the document outside Shadow DOM</h1>
+        <div id="bg"></div>
+        <form>
+          <input type="text" placeholder="Heading Text" name="heading" />
+          <input type="text" placeholder="DIV bg" name="bg" />
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+      <user-card></user-card>
+    </div>
+    <script src="userCard.js"></script>
+    <script>
+      document.querySelector("form").addEventListener("submit", (e) => {
+        e.preventDefault();
+        document.querySelector("h1").innerText = e.target.heading.value;
+        document.querySelector("#bg").style.backgroundColor = e.target.bg.value;
+      });
+    </script>
+  </body>
 </html>
