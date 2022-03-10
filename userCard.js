@@ -26,21 +26,39 @@ template.innerHTML = `
             border-radius: 10px;
             font-size: 18px;
             padding: 5px 10px;
+            width: 20%;
         }
         input {
-            height: 20px;
-            font-size: 18px;
+            height: 30px;
+            font-size: 20px;
             border-radius: 5px;
+            width: 37%;
+        }
+        #addElem {
+            width: 49.5%;
+            margin: 10px 0px;
+        }
+        #removeElem {
+            margin: 10px 0px;
+            width: 49.5%;
+        }
+        .element {
+            padding: 20px 30px;
+            border-radius: 50%;
+            background-color: #4682B4;
+            display: inline-block;
         }
     </style>
     <div id="wrapper">
-        <h1>The content of document inside Shadow DOM</h1>
+        <h1>Inside Shadow DOM</h1>
         <div id='bg'></div>
         <form>
             <input type='text' placeholder='Heading Text' name='heading'/>
             <input type='text' placeholder='DIV bg' name='bg'/>
             <button type='submit'> Submit</button>
         </form>
+        <button id="addElem">Add Element</button>
+        <button id="removeElem">Remove Element</button>
     </div>
 `;
 
@@ -57,6 +75,17 @@ class UserCard extends HTMLElement {
       this.shadowRoot.querySelector("#bg").style.backgroundColor =
         e.target.bg.value;
     });
+    this.shadowRoot.querySelector("#addElem").addEventListener("click", () => {
+      const div = document.createElement("div");
+      div.classList.add("element");
+      this.shadowRoot.querySelector("#wrapper").appendChild(div);
+    });
+    this.shadowRoot
+      .querySelector("#removeElem")
+      .addEventListener("click", () => {
+        const div = this.shadowRoot.querySelector(".element");
+        if (div) div.remove();
+      });
   }
 }
 

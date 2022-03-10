@@ -87,7 +87,7 @@
         background-color: #d0f0c0;
         border-radius: 10px;
         padding: 5px 10px;
-        margin: 10px;
+        margin: 5px;
       }
       h1 {
         text-align: center;
@@ -99,7 +99,7 @@
         background-color: black;
         padding: 100px;
         border-radius: 10px;
-        margin: 10px 0px;
+        margin: 0px 0px 10px 0px;
       }
       button {
         background-color: #23272b;
@@ -108,24 +108,42 @@
         border-radius: 10px;
         font-size: 18px;
         padding: 5px 10px;
+        width: 20%;
+      }
+      #addElem {
+        width: 49.5%;
+        margin: 10px 0px;
+      }
+      #removeElem {
+        margin: 10px 0px;
+        width: 49.5%;
+      }
+      .element {
+        padding: 20px 30px;
+        border-radius: 50%;
+        background-color: #4f7942;
+        display: inline-block;
       }
       input {
-        height: 20px;
-        font-size: 18px;
+        height: 30px;
+        font-size: 20px;
         border-radius: 5px;
+        width: 37%;
       }
     </style>
   </head>
   <body>
     <div id="main">
       <div id="outside-wrapper">
-        <h1>The content of the document outside Shadow DOM</h1>
+        <h1>Outside Shadow DOM</h1>
         <div id="bg"></div>
         <form>
           <input type="text" placeholder="Heading Text" name="heading" />
           <input type="text" placeholder="DIV bg" name="bg" />
           <button type="submit">Submit</button>
         </form>
+        <button id="addElem">Add Element</button>
+        <button id="removeElem">Remove Element</button>
       </div>
       <user-card></user-card>
     </div>
@@ -135,6 +153,15 @@
         e.preventDefault();
         document.querySelector("h1").innerText = e.target.heading.value;
         document.querySelector("#bg").style.backgroundColor = e.target.bg.value;
+      });
+      document.querySelector("#addElem").addEventListener("click", () => {
+        const div = document.createElement("div");
+        div.classList.add("element");
+        document.querySelector("#outside-wrapper").appendChild(div);
+      });
+      document.querySelector("#removeElem").addEventListener("click", () => {
+        const div = document.querySelector(".element");
+        if (div) div.remove();
       });
     </script>
   </body>
