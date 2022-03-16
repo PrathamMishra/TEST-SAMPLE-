@@ -1,4 +1,4 @@
-class InsideShadowOne extends HTMLElement {
+class InsideShadowTwo extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({mode: "open"})
