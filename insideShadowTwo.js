@@ -3,8 +3,9 @@ class InsideShadowTwo extends HTMLElement {
     super();
     this.attachShadow({mode: "open"})
     this.shadowRoot.innerHTML = `
+    <div>
     <h1>Another Shadow</h1>
-    <slot></slot>
+    <slot></slot></div>
 `
   }
 }
