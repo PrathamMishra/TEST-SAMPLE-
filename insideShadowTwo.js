@@ -9,4 +9,4 @@ class InsideShadowOne extends HTMLElement {
   }
 }
 
-customElements.define("inside-shadowTwo", InsideShadowTwo);
+customElements.define("inside-shadowtwo", InsideShadowTwo);

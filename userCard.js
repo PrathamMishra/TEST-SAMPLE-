@@ -1,11 +1,11 @@
 const template = document.createElement("template");
 template.innerHTML = `
-    <inside-shadowOne>
+    <inside-shadowone>
         <h1>Slot First</h1>
-    </inside-shadowOne>
-    <inside-shadowTwo>
+    </inside-shadowone>
+    <inside-shadowtwo>
         <h2>Slot Second</h2>
-    </inside-shadowTwo>
+    </inside-shadowtwo>
 `;
 
 class UserCard extends HTMLElement {
