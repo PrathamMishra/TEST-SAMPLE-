@@ -146,20 +146,11 @@
   </head>
   <body>
     <div id="main">
-      <div id="outside-wrapper">
-        <h1>Outside Shadow DOM</h1>
-        <div id="bg"></div>
-        <form>
-          <input type="text" placeholder="Heading Text" name="heading" />
-          <input type="text" placeholder="DIV bg" name="bg" />
-          <button type="submit">Submit</button>
-        </form>
-        <button id="addElem">Add Element</button>
-        <button id="removeElem">Remove Element</button>
-      </div>
       <user-card></user-card>
     </div>
     <script src="userCard.js"></script>
+    <script src="insideShadowOne.js"></script>
+    <script src="insideShadowTwo.js"></script>
     <script>
       document.querySelector("form").addEventListener("submit", (e) => {
         e.preventDefault();
