@@ -1,13 +1,15 @@
 class TemplateElem extends HTMLElement{
     constructor(){
         super();
+    }
+    connectedCallback(){
         this.innerHTML = `<template>
-        <style>
-            h1{
-                background-color: red;
-            }
-        </style>
-    </template>`
+    <style>
+        h1{
+            background-color: red;
+        }
+    </style>
+</template>`;
     }
 }
 
