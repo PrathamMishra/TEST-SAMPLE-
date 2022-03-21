@@ -14,3 +14,5 @@ class TemplateElem extends HTMLElement{
 }
 
 customElements.define('template-element',TemplateElem)
+
+document.head.appendChild(TemplateElem);
