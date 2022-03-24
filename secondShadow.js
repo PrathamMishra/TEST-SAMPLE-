@@ -40,7 +40,7 @@ class secondShadow extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
-    this.shadowRoot.appendChild(template.content.cloneNode(true));
+    this.shadowRoot.appendChild(temp.content.cloneNode(true));
   }
   connectedCallback() {
     const acBtn = this.shadowRoot.querySelector("#addChild");
