@@ -1,5 +1,5 @@
-const template = document.createElement("template");
-template.innerHTML = `
+const temp = document.createElement("template");
+temp.innerHTML = `
   <div>
     <style>
       .child {
